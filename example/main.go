@@ -7,5 +7,6 @@ import (
 )
 
 func main() {
-	fmt.Println(float64(giostat.ScClkTck))
+	fmt.Println(giostat.Get())
+
 }
