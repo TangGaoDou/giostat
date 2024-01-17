@@ -94,8 +94,8 @@ func collectDiskStats() (out []OutDiskStats, err error) {
 		}
 		r_await := 0.0
 		w_await := 0.0
-		if currDiskStats[i].ReadsCompleted-prevDiskStats[i].WritesCompleted != 0 {
-			r_await = float64(currDiskStats[i].TimeSpentReading-prevDiskStats[i].TimeSpentReading) / float64(currDiskStats[i].WritesCompleted-prevDiskStats[i].WritesCompleted)
+		if currDiskStats[i].ReadsCompleted-prevDiskStats[i].ReadsCompleted != 0 {
+			r_await = float64(currDiskStats[i].TimeSpentReading-prevDiskStats[i].TimeSpentReading) / float64(currDiskStats[i].ReadsCompleted-prevDiskStats[i].ReadsCompleted)
 		}
 		if currDiskStats[i].WritesCompleted-prevDiskStats[i].WritesCompleted != 0 {
 			w_await = float64(currDiskStats[i].TimeSpentWriting-prevDiskStats[i].TimeSpentWriting) / float64(currDiskStats[i].WritesCompleted-prevDiskStats[i].WritesCompleted)
@@ -162,6 +162,7 @@ func getProcDiskStats() (procDiskStats []DiskStats, deviceNumber int, err error)
 		})
 		deviceNumber++
 	}
+	fmt.Println(procDiskStats, deviceNumber)
 	return procDiskStats, deviceNumber, nil
 }
 
