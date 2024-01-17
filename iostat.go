@@ -162,7 +162,7 @@ func getProcDiskStats() (procDiskStats []DiskStats, deviceNumber int, err error)
 		})
 		deviceNumber++
 	}
-	fmt.Println(procDiskStats, deviceNumber)
+	//fmt.Println(procDiskStats, deviceNumber)
 	return procDiskStats, deviceNumber, nil
 }
 
