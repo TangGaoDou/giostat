@@ -113,7 +113,7 @@ func collectDiskStats() (out []OutDiskStats, err error) {
 		out[i].Await = fmt.Sprintf("%10.2f", await)
 		out[i].RWait = fmt.Sprintf("%10.2f", r_await)
 		out[i].WWait = fmt.Sprintf("%10.2f", w_await)
-		out[i].Util = fmt.Sprintf("%10.2f", util)
+		out[i].Util = fmt.Sprintf("%10.2f", util/float64(10))
 	}
 	return out, nil
 }
